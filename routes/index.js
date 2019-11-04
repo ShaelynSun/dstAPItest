@@ -44,15 +44,14 @@ router.register_user = (req, res) =>{
 };
 
 router.login_user = (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
   Usr.findOne({'name':req.body.name},function(err,user){
     if(!user){
-      res.json({ message: 'the user is not existed'} );
-    }
-    if(user.pwd != req.body.pwd){
+      res.json({ message: 'the user is not existed, go to register'} );
+    } else if(user.pwd != req.body.pwd){
       res.json({ message: 'the password is wrong'} );
+    } else {
+      res.json({data: user.name, message: 'login successfully'});
     }
-    res.json({ data: user.name, message: 'login successfully'} );
   });
 } ;
 
