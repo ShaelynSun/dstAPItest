@@ -11,7 +11,7 @@ router.findCommentWithStory =(req, res) => {
     res.setHeader('Content-Type', 'application/json');
     Comment.find({'story': req.params.id},function(err, comments) {
         if (err)
-            res.send(err);
+            res.json({message: 'Comment not Found!'});
         else {
             res.send(comments);
         }
@@ -44,6 +44,23 @@ router.addComment = (req, res) => {
     });
 } ;
 
+router.incrementCom_Upvotes = (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    Comment.findById({'_id': req.params.id},function(err, comment) {
+        if (err)
+            res.send({message:'Comment NOT Found - UpVote NOT Successful!!', errmsg: err});
+        else {
+            comment.com_upvotes += 1;
+            comment.save(function (err) {
+                if (err)
+                    res.send(err);
+                else
+                    res.json({message : 'UpVote Successful' , data : comment});
+            });
+        }
+    });
+} ;
+
 router.deleteComment = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     Story.findById({ "_id" : req.params.story_id }, function(err,story) {
@@ -52,9 +69,9 @@ router.deleteComment = (req, res) => {
         else {
             Comment.findByIdAndRemove({ "_id" : req.params.comment_id }, function(err) {
                 if (err)
-                    res.json({message: 'Story NOT Deleted!'});
+                    res.json({message: 'Comment NOT Deleted!'});
                 else{
-                    res.json({message: 'Story Successfully Deleted!'});
+                    res.json({message: 'Comment Successfully Deleted!'});
                     story.written_times -= 1;
                     story.save();
                 }

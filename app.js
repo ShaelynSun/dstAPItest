@@ -31,6 +31,7 @@ app.get('/comments/:id', comments.findCommentWithStory);
 
 app.put('/stories/:id/upvote', stories.incrementUpvotes);
 app.put('/stories/:id/downvote', stories.incrementDownvotes); // the same test as up-vote
+app.put('/comments/:id/upvote', comments.incrementCom_Upvotes);
 app.put('/stories/:id/addComment', comments.addComment);
 
 app.post('/stories', stories.addStory);

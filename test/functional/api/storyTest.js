@@ -218,7 +218,7 @@ describe('Stories',  () => {
     });  // end-PUT update a story's up-votes (same as down-votes)
     describe("DELETE /stories/:id",  () => {
         describe("when the id is valid", () => {
-            it("should return a message and the donation has been deleted", () => {
+            it("should return a message and the story has been deleted", () => {
                 return request(server)
                     .delete(`/stories/${validID}`)
                     .expect(200)
@@ -244,7 +244,7 @@ describe('Stories',  () => {
             });
         });
         describe("when the id is invalid", () => {
-            it("should return a message for invalid donation id is not deleted", () => {
+            it("should return a message for invalid story id is not deleted", () => {
                 return request(server)
                     .delete("/stories/1100001")
                     .then(resp => {
