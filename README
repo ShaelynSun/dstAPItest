@@ -15,6 +15,7 @@ Comments are related to stories.
 
  + PUT /stories/:id/upvote - Update specific story's upvotes.
  + PUT /stories/:id/downvote - Update specific story's downvotes.
+ + PUT /stories/:id/downvote - Update specific story's downvotes.
  + PUT /comments/:id/upvote - Update specific comment's upvotes.
  + PUT /stories/:id/addcomment - Add the story's new comment, at the same time, the attribute 'written_times' of story should be increased by 1.
 
@@ -24,7 +25,7 @@ Comments are related to stories.
  + POST /login - User login.
 
  #Data model
- [datamodel]: ./img/data_model.jpg
+ [datamodel]: ./public/images/data_model.jpg
 
  ## Sample Test execution.
 
@@ -42,8 +43,6 @@ User
         ✓ should return message that password is wrong
       when the user not existed
         ✓ should return message to advice register
-
-  5 passing (407ms)
 
 Comment
     PUT /stories/:id/addComment
@@ -67,12 +66,9 @@ Comment
       when the id is invalid
         ✓ should return a message for invalid story id is not deleted
 
-  8 passing (493ms)
-
-
 Stories
     GET /stories
-      ✓ should return all the stories
+        ✓ should return all the stories
     GET /stories/:id
       when the id is valid
         ✓ should return the matching story
@@ -81,20 +77,26 @@ Stories
       when the stories contain the keyword
         ✓ should return the matching stories
     POST /stories
-      ✓ should return confirmation message and update datastore
+        ✓ should return confirmation message and update datastore
     PUT /stories/:id/upvote
       when the id is valid
         ✓ should return a message and the story upvoted by 1
       when the id is invalid
         ✓ should return a message for NOT found
+    PUT /stories/:id/downvote
+      when the id is valid
+        ✓ should return a message and the story downvoted by 1
+      when the id is invalid
+        ✓ should return a message for NOT found
+
     DELETE /stories/:id
       when the id is valid
         ✓ should return a message and the story has been deleted
       when the id is invalid
         ✓ should return a message for invalid story id is not deleted
     POST /edit/:id
-      ✓ should return confirmation message and update the previous story
+        ✓ should return confirmation message and update the previous story
 
-  10 passing (424ms)
+  25 passing (5s)
 
  ~~~

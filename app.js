@@ -30,7 +30,7 @@ app.get('/stories/find/:keyword', stories.fuzzySearch);
 app.get('/comments/:id', comments.findCommentWithStory);
 
 app.put('/stories/:id/upvote', stories.incrementUpvotes);
-app.put('/stories/:id/downvote', stories.incrementDownvotes); // the same test as up-vote
+app.put('/stories/:id/downvote', stories.incrementDownvotes);
 app.put('/comments/:id/upvote', comments.incrementCom_Upvotes);
 app.put('/stories/:id/addComment', comments.addComment);
 
@@ -40,7 +40,7 @@ app.post('/reg', indexRouter.register_user);
 app.post('/login', indexRouter.login_user);
 
 app.delete('/stories/:id', stories.deleteStory);
-app.delete('/comments/:story_id/:comment_id', comments.deleteComment); // not test
+app.delete('/comments/:story_id/:comment_id', comments.deleteComment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

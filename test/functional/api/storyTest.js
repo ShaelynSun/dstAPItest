@@ -22,7 +22,7 @@ describe('Stories',  () => {
             });
             // Async Trick - this ensures the database is created before
             // we try to connect to it or start the server
-            await mongod.getConnectionString();
+            // await mongod.getConnectionString();
             await mongoose.connect("mongodb://localhost:27017/dstdb", {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
@@ -49,6 +49,7 @@ describe('Stories',  () => {
             story.username = "shaelyn";
             story.title = "a weird baby";
             story.upvotes = 0;
+            story.downvotes = 0;
             story.content = "the baby has 3 heads.";
             story.written_times = 0;
             story.type = "Chinese";
@@ -183,17 +184,51 @@ describe('Stories',  () => {
         });
     }); // end-POST a new story
     describe("PUT /stories/:id/upvote", () => {
+    describe("when the id is valid", () => {
+        it("should return a message and the story upvoted by 1", () => {
+            return request(server)
+                .put(`/stories/${validID}/upvote`)
+                .expect(200)
+                .then(resp => {
+                    expect(resp.body).to.include({
+                        message: "UpVote Successful"
+                    });
+                    expect(resp.body.data).to.include({
+                        upvotes: 1
+                    });
+                });
+        });
+        after(() => {
+            return request(server)
+                .get(`/stories/${validID}`)
+                .expect(200)
+                .then((resp) => {
+                    expect(resp.body[0]).to.have.property("upvotes", 1);
+                });
+        });
+    });
+    describe("when the id is invalid", () => {
+        it("should return a message for NOT found", () => {
+            return request(server)
+                .put("/stories/1100001/upvote")
+                .then(res => {
+                    expect(res.body).to.include({ message: 'Story NOT Found - UpVote NOT Successful!!'});
+                });
+        });
+    });
+});  // end-PUT update a story's up-votes
+    describe("PUT /stories/:id/downvote", () => {
         describe("when the id is valid", () => {
-            it("should return a message and the story upvoted by 1", () => {
+            it("should return a message and the story downvoted by 1", () => {
                 return request(server)
-                    .put(`/stories/${validID}/upvote`)
+                    .put(`/stories/${validID}/downvote`)
                     .expect(200)
                     .then(resp => {
                         expect(resp.body).to.include({
-                            message: "UpVote Successful"
+                            message: "DownVote Successful"
                         });
                         expect(resp.body.data).to.include({
-                            upvotes: 1
+                            downvotes: 1
                         });
                     });
             });
@@ -202,20 +237,20 @@ describe('Stories',  () => {
                     .get(`/stories/${validID}`)
                     .expect(200)
                     .then((resp) => {
-                        expect(resp.body[0]).to.have.property("upvotes", 1);
+                        expect(resp.body[0]).to.have.property("downvotes", 1);
                     });
             });
         });
         describe("when the id is invalid", () => {
             it("should return a message for NOT found", () => {
                 return request(server)
-                    .put("/stories/1100001/upvote")
+                    .put("/stories/1100001/downvote")
                     .then(res => {
-                        expect(res.body).to.include({ message: 'Story NOT Found - UpVote NOT Successful!!'});
+                        expect(res.body).to.include({ message: 'Story NOT Found - DownVote NOT Successful!!'});
                     });
             });
         });
-    });  // end-PUT update a story's up-votes (same as down-votes)
+    });  // end-PUT update a story's down-votes
     describe("DELETE /stories/:id",  () => {
         describe("when the id is valid", () => {
             it("should return a message and the story has been deleted", () => {

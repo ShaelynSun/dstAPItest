@@ -23,7 +23,7 @@ describe('Comment',  () => {
             });
             // Async Trick - this ensures the database is created before
             // we try to connect to it or start the server
-            await mongod.getConnectionString();
+            // await mongod.getConnectionString();
             await mongoose.connect("mongodb://localhost:27017/dstdb", {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
