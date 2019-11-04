@@ -1,2 +1,8 @@
 /.idea
 /node_modules
+/**/.DS_S*
+.DS_S*
+*.log
+/coverage
+/.nyc_output
+/test/database
