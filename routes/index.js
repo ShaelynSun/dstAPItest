@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
-require('./connect.js');
+require('../connect.js');
 require('../models/usr');
 const Usr = mongoose.model('Usr');
 

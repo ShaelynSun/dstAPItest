@@ -1,6 +1,6 @@
 let express = require('express');
 let mongoose = require('mongoose');
-require('./connect.js');
+require('../connect.js');
 require('../models/comments');
 require('../models/stories');
 const Story = mongoose.model('Story');

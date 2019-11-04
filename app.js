@@ -34,7 +34,7 @@ app.put('/stories/:id/downvote', stories.incrementDownvotes); // the same test a
 app.put('/stories/:id/addComment', comments.addComment);
 
 app.post('/stories', stories.addStory);
-app.post('/edit/:id', stories.editStory); // not test
+app.post('/edit/:id', stories.editStory);
 app.post('/reg', indexRouter.register_user);
 app.post('/login', indexRouter.login_user);
 

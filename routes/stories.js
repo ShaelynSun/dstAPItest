@@ -1,6 +1,6 @@
 let express = require('express');
 let mongoose = require('mongoose');
-require('./connect.js');
+require('../connect.js');
 require('../models/stories');
 const Story = mongoose.model('Story');
 let router = express.Router();
@@ -64,7 +64,7 @@ router.addStory = (req, res) => {
         if (err)
             res.json({message: 'Story not Added!', errmsg: err});
         else
-            res.json({message: 'Story Added Successfully!'});
+            res.json({message: 'Story Added Successfully!', data: story});
     });
 };
 router.incrementUpvotes = (req, res) => {
