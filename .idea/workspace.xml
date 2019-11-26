@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef532cfb-2730-4ba3-a935-21b67324667c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/database/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/test/database/mongod.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/functional/api/commentTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/commentTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/functional/api/storyTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/storyTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/functional/api/userTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/userTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +29,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -100,6 +93,9 @@
       <workItem from="1572821397141" duration="4764000" />
       <workItem from="1572827080044" duration="5548000" />
       <workItem from="1572902689282" duration="3813000" />
+      <workItem from="1572909987358" duration="166000" />
+      <workItem from="1572969711978" duration="112000" />
+      <workItem from="1574761614058" duration="1069000" />
     </task>
     <servers />
   </component>
