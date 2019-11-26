@@ -1,11 +1,16 @@
 # Assignment 1 - Agile Software Practice.
-Name: Xinyue Sun (Shaelyn)
+Name: Xinyue Sun (Shaelyn) 
+
 Student Number: 20086486
 
+GitHub link: https://github.com/ShaelynSun/dstAPItest
+
 ## Overview.
-This is a dynamic storytelling website. Everyone can post their own story, of course the story can be incomplete.
+This is a dynamic story telling website. Everyone can post their own incomplete story. 
 After uploaded, other users will post comments as the continuation of this story.
-Comments are related to stories.
+Comments are related to stories. One story has many comments. A user can post both stories and comments.
+Users can find their interested stories(and comments) by fuzzy search, and update upvotes and downvotes.
+Users must register to use this website, and the username should be unique.
 
 ## API endpoints.
  + GET /stories - Get all stories.
@@ -22,14 +27,17 @@ Comments are related to stories.
  + POST /stories - Add a new story.
  + POST /edit/:id - Edit the specific story's title and content.
  + POST /reg - Register a new user (the username should be unique).
- + POST /login - User login.
+ + POST /login - User login with username and password identification.
 
- #Data model
- [datamodel]: ./public/images/data_model.jpg
+ + DELETE /stories/:id - Delete the specific story.
+ + DELETE /comments/:story_id/:comment_id - Delete the specific story's a comment.
+
+ ## Data model
+ ![data_model](public/images/data_model.jpg)
 
  ## Sample Test execution.
 
- ~~~
+~~~
 User
     POST /reg
       when the user hasn't been existed
@@ -99,4 +107,11 @@ Stories
 
   25 passing (5s)
 
- ~~~
+=============================== Coverage summary ===============================
+Statements   : 90.95% ( 201/221 )
+Branches     : 68% ( 34/50 )
+Functions    : 85.71% ( 36/42 )
+Lines        : 91.36% ( 201/220 )
+================================================================================
+
+~~~
